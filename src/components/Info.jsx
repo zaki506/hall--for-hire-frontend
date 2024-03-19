@@ -1,11 +1,10 @@
 import React from 'react'
 
-const Card = () => {
+const Info = () => {
   return (
     <>
-    <h1>hda</h1>
     </>
   )
 }
 
-export default Card
+export default Info
