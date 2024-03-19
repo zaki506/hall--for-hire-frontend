@@ -50,11 +50,11 @@ const Carousel = () => {
                
       </Swiper>
       <Button
-        cls="btn btn-primary position-absolute top-10 z-1 right-10"
+        cls="btn btn-primary position-absolute top-5 z-1 right-10"
         text="List your halls"
       />
       <Button
-        cls="btn btn-transparent text-white hover:bg-blue-700 position-absolute top-10 z-1 right-[200px]"
+        cls="btn btn-transparent text-white hover:bg-blue-700 position-absolute top-5 z-1 right-[200px]"
         text="Login"
       />
     </>
