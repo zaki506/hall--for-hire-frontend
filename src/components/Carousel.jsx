@@ -5,6 +5,8 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import { EffectFade, Autoplay } from "swiper/modules";
 import Button from "./Button";
+import { Link } from "react-router-dom";
+
 const slides = [
   {
     title: "Your Luxury Hotel For Vacation",
@@ -19,7 +21,7 @@ const slides = [
     bg: "https://images.pexels.com/photos/1098743/pexels-photo-1098743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
 ];
-const Carousel = () => {
+const Carousel = ({clsName}) => {
   return (
     <>
       <Swiper
@@ -30,10 +32,12 @@ const Carousel = () => {
           delay: 3000,
           disableOnInteraction: false,
         }}
-        className="heroSlider h-[600px]"
+        className={clsName}
+        // "heroSlider h-[600px]"
       >
+      
         {slides.map((slide, index) => {
-          const { title, bg, btnText } = slide;
+          const { bg } = slide;
           return (
             <SwiperSlide
               className="h-full relative flex justify-center items-center"
@@ -47,16 +51,19 @@ const Carousel = () => {
             </SwiperSlide>
           );
         })}
-               
-      </Swiper>
-      <Button
-        cls="btn btn-primary position-absolute top-5 z-1 right-10"
-        text="List your halls"
-      />
-      <Button
-        cls="btn btn-transparent text-white hover:bg-blue-700 position-absolute top-5 z-1 right-[200px]"
-        text="Login"
-      />
+        </Swiper>
+      <Link to={"/register"}>
+        <Button
+          cls="btn btn-primary position-absolute top-5 z-1 right-10"
+          text="List your halls"
+        />
+      </Link>
+      <Link to={"/login"}>
+        <Button
+          cls="btn btn-transparent text-white hover:bg-blue-700 position-absolute top-5 z-1 right-[180px]"
+          text="Login"
+        />
+      </Link>
     </>
   );
 };

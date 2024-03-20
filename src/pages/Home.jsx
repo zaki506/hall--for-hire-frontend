@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 const Home = () => {
   return (
     <>
-      <Carsosel />
+      <Carsosel clsName="heroSlider h-[600px]" />
       <div className="container text-center bg-slate-400">
         <Info icon={QuestionMark} text="This is a text one" />
       </div>

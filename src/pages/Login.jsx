@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import "../index.css";
 import axios from "axios";
 import { useFormik } from "formik";
 import { Toaster, toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
+import Button from "../components/Button";
+import Footer from "../components/Footer";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -34,6 +37,7 @@ const Login = () => {
 
   return (
     <>
+      <Header />
       <div className="container d-flex justify-content-center my-5">
         <div className="w-50">
           <form onSubmit={myFormik.handleSubmit}>
@@ -60,17 +64,13 @@ const Login = () => {
                 onChange={myFormik.handleChange}
               />
             </div>
-
             <div>
-              <input
-                type="submit"
-                className="btn btn-primary my-3"
-                value={"Submit"}
-              />
+              <Button cls="btn btn-primary my-2" text="Login" />
             </div>
           </form>
         </div>
       </div>
+      <Footer />
       <Toaster />
     </>
   );
