@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <>
-      <header className="bg-dark p-4">
+      <header className="bg-dark p-2">
         <div className="container-fluid">
           <div className="row py-3">
             <div className="d-flex justify-content-between align-items-center">

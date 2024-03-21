@@ -25,7 +25,7 @@ const Login = () => {
           toast.success(res?.data?.message);
           localStorage.setItem("token", res?.data?.user?.token);
           setTimeout(() => {
-            navigate("/");
+            navigate("/admin/dashboard");
           }, 2000);
         })
         .catch((err) => {
