@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useRef } from "react";
 import Carousel from "../components/Carousel";
-import ReCAPTCHA from 'react-google-recaptcha'
+import ReCAPTCHA from "react-google-recaptcha";
 import Button from "../components/Button";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +10,7 @@ import axios from "axios";
 
 const Register = () => {
   const navigate = useNavigate();
+  const recaptcha = useRef();
 
   const myFormik = useFormik({
     initialValues: {
@@ -27,17 +28,18 @@ const Register = () => {
       await axios
         .post("http://localhost:8080/api/user/create", values)
         .then((res) => {
-			console.log("res", res)
-          toast.success(res?.data?.message)
-		  setTimeout(() => {
-			navigate("/")
-		  }, 2000)
+          console.log("res", res);
+          toast.success(res?.data?.message);
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
         })
         .catch((err) => {
           console.log(err.message);
         });
     },
   });
+
   return (
     <>
       <Carousel clsName="heroSlider h-[200px]" />
@@ -55,17 +57,16 @@ const Register = () => {
           <p>
             Please fill out the following form to create a user account. This
             information is for administrative purposes only and{" "}
-            <span className="font-semibold">will never be published </span>without your consent and will be
-            used to manage your listing/s. Please use information that can
-            easily be shared and recorded throughout your organisation.
+            <span className="font-semibold">will never be published </span>
+            without your consent and will be used to manage your listing/s.
+            Please use information that can easily be shared and recorded
+            throughout your organisation.
           </p>
         </div>
 
         <div>
-
           <form onSubmit={myFormik.handleSubmit}>
-            
-          <div>
+            <div>
               <label>Name</label>
               <input
                 className="form-control"
@@ -88,8 +89,6 @@ const Register = () => {
                 onChange={myFormik.handleChange}
               />
             </div>
-            
-
 
             <div>
               <label>Phone</label>
@@ -114,8 +113,6 @@ const Register = () => {
                 onChange={myFormik.handleChange}
               />
             </div>
-           
-
 
             <div>
               <label>Address</label>
@@ -140,8 +137,6 @@ const Register = () => {
                 onChange={myFormik.handleChange}
               />
             </div>
-           
-
 
             <div>
               <label>State</label>
@@ -149,7 +144,6 @@ const Register = () => {
                 className="form-control"
                 type="text"
                 id="state"
-                // value={}
                 name="state"
                 onChange={myFormik.handleChange}
               />
@@ -166,7 +160,6 @@ const Register = () => {
                 onChange={myFormik.handleChange}
               />
             </div>
-           
 
             <div>
               <label>Password</label>
@@ -181,20 +174,12 @@ const Register = () => {
             </div>
 
             <div>
-              <label>Prove you're human</label>
-              <ReCAPTCHA sitekey={process.env.REACT_APP_SITE_KEY} />
+              <Button type={"submit"} cls="btn btn-outline-primary my-2" text="Register Now" />
             </div>
-
-
-            <div>
-              <Button cls="btn btn-primary my-2" text="Register Now" />
-            </div>
-            
-
           </form>
         </div>
       </div>
-      <Toaster/>
+      <Toaster />
     </>
   );
 };
