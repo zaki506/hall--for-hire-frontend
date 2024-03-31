@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Layout from "./pages/Layout";
 import Dashboard from "./components/Dashboard";
+import VerifyEmail from "./pages/VerifyEmail";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,6 +15,8 @@ root.render(
       <Route path="/" element={<App />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/users/:id/verify/:token" element={<VerifyEmail />} />
+
       <Route path="/admin" element={<Layout />}>
         <Route path="dashboard" element={<Dashboard />} />
       </Route>

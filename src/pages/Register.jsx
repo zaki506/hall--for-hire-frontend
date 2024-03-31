@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useRef } from "react";
+import React from "react";
 import Carousel from "../components/Carousel";
-import ReCAPTCHA from "react-google-recaptcha";
 import Button from "../components/Button";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +9,6 @@ import axios from "axios";
 
 const Register = () => {
   const navigate = useNavigate();
-  const recaptcha = useRef();
 
   const myFormik = useFormik({
     initialValues: {
@@ -26,7 +24,7 @@ const Register = () => {
 
     onSubmit: async (values) => {
       await axios
-        .post("http://localhost:8080/api/user/create", values)
+        .post("http://localhost:8080/api/user/register", values)
         .then((res) => {
           console.log("res", res);
           toast.success(res?.data?.message);
@@ -72,9 +70,9 @@ const Register = () => {
                 className="form-control"
                 type="text"
                 id="name"
-                // value={}
                 name="name"
                 onChange={myFormik.handleChange}
+                defaultValue={myFormik.values.name}
               />
             </div>
 
@@ -85,23 +83,10 @@ const Register = () => {
                 type="email"
                 id="email"
                 name="email"
-                // value={}
+                defaultValue={myFormik.values.email}
                 onChange={myFormik.handleChange}
               />
             </div>
-
-            <div>
-              <label>Phone</label>
-              <input
-                className="form-control"
-                type="Number"
-                id="phone"
-                // value={}
-                name="phone"
-                onChange={myFormik.handleChange}
-              />
-            </div>
-
             <div>
               <label>Mobile</label>
               <input
@@ -109,7 +94,7 @@ const Register = () => {
                 type="Number"
                 id="mobile"
                 name="mobile"
-                // value={}
+                defaultValue={myFormik.values.mobile}
                 onChange={myFormik.handleChange}
               />
             </div>
@@ -120,8 +105,8 @@ const Register = () => {
                 className="form-control"
                 type="text"
                 id="address"
-                // value={}
                 name="address"
+                defaultValue={myFormik.values.address}
                 onChange={myFormik.handleChange}
               />
             </div>
@@ -133,7 +118,7 @@ const Register = () => {
                 type="text"
                 id="city"
                 name="city"
-                // value={}
+                defaultValue={myFormik.values.city}
                 onChange={myFormik.handleChange}
               />
             </div>
@@ -145,6 +130,7 @@ const Register = () => {
                 type="text"
                 id="state"
                 name="state"
+                defaultValue={myFormik.values.state}
                 onChange={myFormik.handleChange}
               />
             </div>
@@ -156,7 +142,7 @@ const Register = () => {
                 type="number"
                 id="postcode"
                 name="postcode"
-                // value={}
+                defaultValue={myFormik.values.postcode}
                 onChange={myFormik.handleChange}
               />
             </div>
@@ -168,13 +154,17 @@ const Register = () => {
                 type="password"
                 id="password"
                 name="password"
-                // value={}
+                defaultValue={myFormik.values.password}
                 onChange={myFormik.handleChange}
               />
             </div>
 
             <div>
-              <Button type={"submit"} cls="btn btn-outline-primary my-2" text="Register Now" />
+              <Button
+                type={"submit"}
+                cls="btn btn-outline-primary my-2"
+                text="Register Now"
+              />
             </div>
           </form>
         </div>
