@@ -21,7 +21,7 @@ const slides = [
     bg: "https://images.pexels.com/photos/1098743/pexels-photo-1098743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
 ];
-const Carousel = ({clsName}) => {
+const Carousel = ({ clsName }) => {
   return (
     <>
       <Swiper
@@ -33,9 +33,9 @@ const Carousel = ({clsName}) => {
           disableOnInteraction: false,
         }}
         className={clsName}
-        // "heroSlider h-[600px]"
+      // "heroSlider h-[600px]"
       >
-      
+
         {slides.map((slide, index) => {
           const { bg } = slide;
           return (
@@ -51,7 +51,7 @@ const Carousel = ({clsName}) => {
             </SwiperSlide>
           );
         })}
-        </Swiper>
+      </Swiper>
       <Link to={"/register"}>
         <Button
           cls="btn btn-primary position-absolute top-5 z-1 right-10"
