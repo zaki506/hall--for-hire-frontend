@@ -1,70 +1,90 @@
-/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/effect-fade";
-import { EffectFade, Autoplay } from "swiper/modules";
-import Button from "./Button";
-import { Link } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const slides = [
-  {
-    title: "Your Luxury Hotel For Vacation",
-    bg: "https://images.pexels.com/photos/614512/pexels-photo-614512.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-  {
-    title: "Your Luxury Hotel For Vacation",
-    bg: "https://images.pexels.com/photos/704822/pexels-photo-704822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-  {
-    title: "hrjb",
-    bg: "https://images.pexels.com/photos/1098743/pexels-photo-1098743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-];
-const Carousel = ({ clsName }) => {
+const Carousel = () => {
+  const inputCss = {
+    outline: "none",
+    border: "none",
+    boxShadow: "none",
+  };
+  const slides = [
+    {
+      title: "Halls for Rent in San Francisco, CA",
+      subHeading: "See a whole variety of hall venues ready to be booked",
+      backgroundImage:
+        "linear-gradient(rgba(0, 0, 0, 0.515),rgba(0, 0, 0, 0.515)), url(https://t4.ftcdn.net/jpg/06/18/14/43/240_F_618144393_oAys6JEuxUcAOr5nbqkZ15sirOWrRiQi.jpg)",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+    },
+    {
+      title: "Halls for Rent in San Francisco, CA",
+      subHeading: "See a whole variety of hall venues ready to be booked",
+      backgroundImage:
+        "linear-gradient(rgba(0, 0, 0, 0.515),rgba(0, 0, 0, 0.515)), url(https://t3.ftcdn.net/jpg/06/20/28/80/240_F_620288019_umlRr0TCxFpr7savrgm8htVeWmVqPozo.jpg)",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+    },
+  ];
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    slidesToScroll: 1,
+  };
   return (
-    <>
-      <Swiper
-        modules={[EffectFade, Autoplay]}
-        effect={"fade"}
-        loop={true}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
-        className={clsName}
-      // "heroSlider h-[600px]"
-      >
-
-        {slides.map((slide, index) => {
-          const { bg } = slide;
+    <div className="slider-container">
+      <Slider {...settings}>
+        {slides.map((item) => {
           return (
-            <SwiperSlide
-              className="h-full relative flex justify-center items-center"
-              key={index}
-            >
-              <div className="z-40 text-white text-center"></div>
-              <div className="absolute top-0 w-full h-full">
-                <img className="object-cover h-full w-full" src={bg} />
+            <div>
+              <div
+                style={item}
+                className="p-[150px] d-flex justify-content-center align-items-center"
+              >
+                <div className="text-center">
+                  <h1 className="fs-1 text-white mb-5">{item.title}</h1>
+                  <p className="text-white mb-5 fs-3 fw-light">{item.subHeading}</p>
+                  <div className="bg-white p-2">
+                    <div className="row align-items-center">
+                      <div className="col-4 border-end">
+                        <p className="text-start">date</p>
+                        <div className="d-flex align-items-center ">
+                          <i class="bx bxs-calendar"></i>
+                          <input
+                            className="form-control border-bottom rounded-0"
+                            style={inputCss}
+                            type="text"
+                          />
+                        </div>
+                      </div>
+                      <div className="col-4">
+                        <p className="text-start">Guest</p>
+                        <div className="d-flex align-items-center ">
+                          <i class="bx bx-user"></i>
+                          <input
+                            className="form-control border-bottom rounded-0"
+                            style={inputCss}
+                            type="text"
+                          />
+                        </div>
+                      </div>
+                      <div className="col-lg-4">
+                        <button className="btn btn-danger w-100 py-3">serach</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="absolute w-full h-full bg-black/70"></div>
-            </SwiperSlide>
+            </div>
           );
         })}
-      </Swiper>
-      <Link to={"/register"}>
-        <Button
-          cls="btn btn-primary position-absolute top-5 z-1 right-10"
-          text="List your halls"
-        />
-      </Link>
-      <Link to={"/login"}>
-        <Button
-          cls="btn btn-transparent text-white hover:bg-blue-700 position-absolute top-5 z-1 right-[180px]"
-          text="Login"
-        />
-      </Link>
-    </>
+      </Slider>
+    </div>
   );
 };
 

@@ -1,4 +1,8 @@
 import React from "react";
+import { FaFacebook } from "react-icons/fa";
+import { RiTwitterXLine } from "react-icons/ri";
+import { FaDribbble } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -13,30 +17,30 @@ const Footer = () => {
               <h5 className="text-lg mt-0 mb-2 text-blueGray-600">
                 Find us on any of these platforms, we respond 1-2 business days.
               </h5>
-              <div className="mt-6 lg:mb-0 mb-6">
+              <div className="mt-6 lg:mb-0 mb-6 flex justify-start items-center">
                 <button
-                  className="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  className="text-2xl font-normal h-10 w-10 items-center justify-center rounded-full outline-none mr-2"
                   type="button"
                 >
-                  <i className="fab fa-twitter"></i>
+                  <RiTwitterXLine />
                 </button>
                 <button
-                  className="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  className="text-2xl font-normal h-10 w-10 items-center justify-center rounded-full outline-none mr-2"
                   type="button"
                 >
-                  <i className="fab fa-facebook-square"></i>
+                  <FaFacebook />
                 </button>
                 <button
-                  className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  className="text-2xl font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none mr-2"
                   type="button"
                 >
-                  <i className="fab fa-dribbble"></i>
+                  <FaDribbble />
                 </button>
                 <button
-                  className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  className="text-2xl font-normal h-10 w-10 items-center justify-center rounded-full outline-none mr-2"
                   type="button"
                 >
-                  <i className="fab fa-github"></i>
+                  <FaGithub />
                 </button>
               </div>
             </div>
