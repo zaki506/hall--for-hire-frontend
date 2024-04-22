@@ -2,6 +2,8 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Button from "./Button"
+import Header from "./Header"
 
 const Carousel = () => {
   const inputCss = {
@@ -26,6 +28,14 @@ const Carousel = () => {
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
     },
+    {
+      title: "Halls for Rent in San Francisco, CA",
+      subHeading: "See a whole variety of hall venues ready to be booked",
+      backgroundImage:
+        "linear-gradient(rgba(0, 0, 0, 0.515),rgba(0, 0, 0, 0.515)), url(https://t3.ftcdn.net/jpg/06/20/28/80/240_F_620288019_umlRr0TCxFpr7savrgm8htVeWmVqPozo.jpg)",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+    },
   ];
   const settings = {
     dots: true,
@@ -37,8 +47,10 @@ const Carousel = () => {
     slidesToScroll: 1,
   };
   return (
+    <>
+    <Header />
     <div className="slider-container">
-      <Slider {...settings}>
+    <Slider {...settings}>
         {slides.map((item) => {
           return (
             <div>
@@ -85,6 +97,7 @@ const Carousel = () => {
         })}
       </Slider>
     </div>
+    </>
   );
 };
 

@@ -13,9 +13,14 @@ const Header = () => {
               <div className="col-sm-3">
                 <span className="text-white">LOGO</span>
               </div>
+              <Link to={"/login"}>
+                <div className="">
+                  <Button cls="btn btn-primary" text="Login" />
+                </div>
+              </Link>
               <Link to={"/register"}>
                 <div className="">
-                  <Button cls="btn btn-primary" text="List your hall" />
+                  <Button cls="btn btn-dark" text="List your hall" />
                 </div>
               </Link>
             </div>
